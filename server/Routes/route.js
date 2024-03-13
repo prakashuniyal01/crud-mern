@@ -4,8 +4,8 @@ const users = require("../Models/userSchema");
 
 
 router.post("/create-user", async (req, res) => {
-  const { name,lastname, number,  email, designation } = req.body;
-  if (!name ||!number || !email || !designation) {
+  const { name,  email, designation } = req.body;
+  if (!name || !email || !designation) {
     res.status(400).json("Please fill all the fields");
   } else {
     try {
@@ -16,7 +16,6 @@ router.post("/create-user", async (req, res) => {
         const newUser = new users({
           name,
           email,
-          number,
           designation,
         });
         await newUser.save();

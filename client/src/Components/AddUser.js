@@ -119,11 +119,11 @@ const AddUser = ({ getUsersData }) => {
                   name="name"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.name}
+                  value={values.lastname}
                   autoComplete="off"
                 />
                 <Text color="tomato">
-                  {errors.name && touched.name && errors.name}
+                  {errors.lastname && touched.lastname && errors.lastname}
                 </Text>
               </FormControl>
               <FormControl isRequired mt={8}>
