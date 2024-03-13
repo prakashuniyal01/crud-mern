@@ -20,12 +20,12 @@ const EditUpdateUser = ({ userData, getUsersData }) => {
 
   //update user data function call
   const UpdateData = (values) => {
-    const { _id, name, email, project } = values;
+    const { _id, name, email, designation } = values;
     axios
       .patch(`http://localhost:5000/update/${_id}`, {
         name,
         email,
-        project,
+        designation
       })
       .then((res) => {
         getUsersData();
@@ -67,8 +67,8 @@ const EditUpdateUser = ({ userData, getUsersData }) => {
             if (!values.name) {
               errors.name = "Name is Required";
             }
-            if (!values.project) {
-              errors.project = "project is Required";
+            if (!values.designation) {
+              errors.designation = "designation is Required";
             }
             return errors;
           }}
@@ -117,19 +117,19 @@ const EditUpdateUser = ({ userData, getUsersData }) => {
                 </Text>
               </FormControl>
               <FormControl isRequired mt={8}>
-                <FormLabel>project</FormLabel>
+                <FormLabel>designation</FormLabel>
                 <Input
                   type="text"
-                  name="project"
+                  name="designation"
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.project}
+                  value={values.designation}
                   autoComplete="off"
                 />
                 <Text color="tomato">
-                  {errors.project &&
-                    touched.project &&
-                    errors.project}
+                  {errors.designation &&
+                    touched.designation &&
+                    errors.designation}
                 </Text>
               </FormControl>
 
